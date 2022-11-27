@@ -1,0 +1,30 @@
+{% extends 'blog-base.html' %}
+{% load static %}
+
+{% block title %}
+    Blog Home
+{% endblock title %}
+
+{% block content %}
+<section id="welcome">
+    <header>
+        <img src="" alt="MY image ">
+        <h2>Ji Blog</h2>
+    </header>
+    <p>Welcome to my thoughts and views</p>
+</section>
+
+ <section id="latest-posts">
+    <h2>My latest thoughts</h2>
+    <ul>
+        {% for post in posts %}
+            {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section> 
+<section>
+    <h4><a href="{% url 'home' %}"> Go back to my porfolio website</a></h4>
+</section>
+{% endblock content %}
+
+

@@ -1,0 +1,11 @@
+<li>
+    <article class ="posts">
+        <a href="{% url 'detailed-post' post.slug %} ">
+            <img width=200 src="{{post.image.url}} " alt="{{post.title}} ">
+
+            <div class="post-content">
+                <h3>{{post.title}}</h3>
+            </div>
+        </a>
+    </article>
+</li>

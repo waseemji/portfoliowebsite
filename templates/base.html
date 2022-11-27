@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}{% endblock title %}
+    </title>
+
+    {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
+    <link rel="stylesheet" href=" {% static 'app.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    {% block style %}{% endblock style %}
+</head>
+<body>
+    <div class="main-menu">
+        <div class = "menu-top">
+            <a class = "logo" href="{% url 'home' %}">
+                <span>Waseemji</span>
+            </a>
+            <span>Backend Developer</span>
+        </div>
+        <div class = "menu">
+            <a href="{% url 'about' %} ">About Me</a>
+            <a href="{% url 'skills' %}">My skills</a>
+            <a href="{% url 'resume' %}">My Resume</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a style="color: #08FDD8" href="{% url 'blog-home' %}">Blog</a>
+        </div>
+        <ul class = "social">
+            <li>
+                <a href="https://github.com/waseemji">  <!--brand icon-->
+                    <i class="fa fa-github"></i></a>
+                </li>
+                <li>
+                    <a href="http://www.linkedin.com/in/waseemashraf-"> <i class="fa fa-linkedin"></i></a>
+                </li>
+        </ul>
+      
+    </div>
+    <div>
+        {% comment %} Second main table {% endcomment %}
+        {% block content %}
+        
+        {% endblock content %}
+    </div>
+    </body>
+</html>
