@@ -15,7 +15,7 @@ class BlogPost(models.Model):
     image = models.ImageField(upload_to="images")
     description = models.TextField(max_length=500)
     slug = models.SlugField(default="", blank=True ,db_index=True)
-    tag = models.ManyToManyField(Tag)
+    tag = models.ManyToManyField(Tag, related_name="tag")
 
     def save(self,*args, **kwargs):
         self.slug = slugify(self.title)
@@ -28,6 +28,7 @@ class Comments(models.Model):
     user_name = models.CharField(max_length=100)
     user_email = models.EmailField()
     user_comment = models.TextField(max_length=550)
+    date_time = models.DateTimeField(auto_now=True, blank=True)
     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name="comments")
 
     class Meta:

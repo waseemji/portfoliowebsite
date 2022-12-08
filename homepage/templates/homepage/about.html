@@ -3,13 +3,70 @@
 {% block title %}
     About Ji
 {% endblock title %}
+{% block style %}
+ 
+{% endblock style %}
+
 
 {% block content %}
-    <h1>So,</h1>
-    <h2>talking about me</h2>
-    <p>blah blah blah </p>
-    <br>
-    <p>blah blah blahjah</p>
+    {% comment %} <section class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <h4>About Me</h4>
+        </div>
+      </div>
+    </section> {% endcomment %}
+    <section class="container">
+        <div class="row">
+            <div class = "col">
+                <div>
+                    <h3>So Talking about me</h3>
+                    <p class="lh-sm">
+                        I am a 2022 B.Tech CSE passout from Government Engineering College Wayanad. I reside at Kozhikode,Kerala.
+                        I started my django journey after college and it was a fulfilling journey. Should have done this long before but better late than never.                       
+                    </p>
+                    <p class="lh-sm">
+                        
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <h4><i class="fa-sharp fa-solid fa-language"></i>  Languages I know </h4>
+                    <ul class="list-group me-5 mb-4">
+                        <li class="list-group-item d-flex  align-items-center"> <i class="fas fa-book-open pe-2"></i>  English - Professional</li>
+                        <li class="list-group-item d-flex  align-items-center"> <i class="fas fa-book-open pe-2"></i>  Malayalam - Native Language</li>
+                        <li class="list-group-item d-flex  align-items-center"> <i class="fas fa-book-open pe-2"></i>  Hindi - Elementary Proficiency</li>
+                    </ul>
+                    <h4><i class="fa-solid fa-user-graduate"></i> Education Details</h4>
+                    <ul class="list-group me-5">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                          <div class="ms-2 me-auto">
+                            <div class="fw-bold">Government Engineering College Wayanad</div>
+                            <span> Bachelor of Technology - Computer Science and Engineering
+                            <p> APJ Abdul Kalam Technological university</p></span>
+                          </div>
+                          <span class="badge bg-primary rounded-pill">TBD</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                          <div class="ms-2 me-auto">
+                            <div class="fw-bold">Dayapuram Residential School</div>
+                            Higher Secondary - CBSE
+                          </div>
+                          <span class="badge bg-primary rounded-pill">80.2%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                          <div class="ms-2 me-auto">
+                            <div class="fw-bold">Dayapuram Residential School</div>
+                            High School - CBSE
+                          </div>
+                          <span class="badge bg-primary rounded-pill">93.1%</span>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock content %}
 
 

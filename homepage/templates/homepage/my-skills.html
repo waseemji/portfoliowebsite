@@ -4,8 +4,56 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Skills that i posses</h1>
-    <h2>blah blah blah</h2>
+    <section class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <h3 class="display-4 fw-bold">SO what all do i know🤔...</h3>
+                    <ul class="list-unstyled">
+                        <li class="fw-normal fs-2"> Python | C | C++ | Bash</li>
+                        <li class="fw-normal fs-2"> HTML | CSS | Bootstrap</li>
+                        <li class="fw-normal fs-2"> mySQL | Postgres | SQLite </li>
+                        <li class="fw-normal fs-2"> Django | REST API</li>
+                        <li class="fw-normal fs-2"> Git | Github</li>
+                        <li class="fw-normal fs-2"> Web Scraping | BeautifulSoup</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <h3 class="display-4">Personal Projects
+                      <small class="fs-6">(Click to view on github)</small>
+                    </h3>
+                    <div class="list-group me-3">
+                        <a href="https://github.com/waseemji/portfoliowebsite" class="list-group-item list-group-item-action ">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Potfolio Website</h5>
+                            <small class="text-muted">Django | Bootstrap</small>
+                          </div>
+                          <p class="mb-1">This website that you are currently viewing</p>
+                          <small class="text-muted">Used Bootstrap , django class based views , Postgres as database</small>
+                        </a>
+                        <a href="https://github.com/waseemji/reddit-clone" class="list-group-item list-group-item-action">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">reddit-clone </h5>
+                            <small class="text-muted">RESTAPI</small>
+                          </div>
+                          <p class="mb-1">Django REST Framework</p>
+                          <small class="text-muted">Mini project to create and use REST API</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">book_store</h5>
+                            <small class="text-muted">SQLite</small>
+                          </div>
+                          <p class="mb-1">Django Database  </p>
+                          <small class="text-muted">Mini project to study database, ORM ...</small>
+                        </a>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock content %}
 
 

@@ -1,0 +1,40 @@
+body { 
+    padding-top: 70px;
+    background-color: aliceblue;
+}
+
+
+a img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+/* 
+<form action="{% url 'detailed-post' post.slug %}" method = "POST">
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'style': 'width: 300px;', 'class': 'form-control'}))
+    
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder' :'Email', 'style': 'width: 300px;', 'class': 'form-control'}))
+                {% csrf_token %}
+                <div class="row">
+                    {% for form_field in comment-form %}
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group fl_icon">
+                                <div class="icon"><i class="fa fa-user"></i></div>
+                                <input class="form-input" type="text" placeholder="Your name">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 fl_icon">
+                            <div class="form-group fl_icon">
+                                <div class="icon"><i class="fa fa-envelope-o"></i></div>
+                                <input class="form-input" type="text" placeholder="Your email">
+                            </div>
+                        </div>
+                        <div class="col-xs-12">									
+                            <div class="form-group">
+                                <textarea class="form-input" required="" placeholder="Your text"></textarea>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary pull-right">submit</a>
+                    {% endfor %}
+                </div>
+            </form> */

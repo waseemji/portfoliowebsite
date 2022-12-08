@@ -1,13 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     My HomePage
 {% endblock title %}
 
+{% block style %}
+    <link rel="stylesheet" href="{% static 'homepage/home.css' %}">
+{% endblock style %}
+
+
 
 {% block content %}
-    <h1>Hi</h1>
-    <h2>I am WaseemJi</h2>
-    <p>This is my attempt to create a place to mark my views</p>
+    <section class="container">
+        <div class="row">
+            <div class="col">
+                <div class="align-items-center">
+                    <h4>Hello There</h4>
+                    <h4 class="display-1 fw-bold">I am Waseem Ashraf</h4>
+                    <blockquote class="blockqoute">Django backend developer <small class=" text-opacity-25">Definitly  NOT a designer </small> </blockquote>
+                </div>
+            </div>
+            <div class="col">
+                <img  class="rounded float-end me-4" src="{% static 'profile.jpeg' %}" alt="This is me"> 
+            </div>
+        </div>
+    </section>
+    <section id="footer" class="container">
+        <div class="row">
+            <div class="col">SOmething here</div>
+        </div>
+    </section>
 {% endblock content %}
 

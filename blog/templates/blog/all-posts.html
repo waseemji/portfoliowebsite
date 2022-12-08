@@ -6,12 +6,18 @@
 
 {% block content %}
 <section id="all-posts">
-    <h2>My POsts</h2>
-     <ul>
-        {% for post in all_posts %}
-            {% include "blog/includes/post.html" %}
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h2>My POsts</h2>
+        <ul class="list-unstyled row d-inline-flex p-2">
+            {% for post in all_posts %}
+ 
+                        <li class="col">
+                        {% include "blog/includes/post.html" %}
+                        </li>
+
+                {% endfor %}
+            </ul>
+    </div>
 
 </section>
 {% endblock content %}

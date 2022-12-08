@@ -1,79 +1,111 @@
 {% extends 'blog-base.html' %}
+{% load static %}
 
 {% block title %}
     {{post.title}}
 {% endblock title %}
 
 {% block css %}
-
+    <link rel="stylesheet" href="{% static 'blog/detailed-post.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 {% endblock css %}
 
 
 {% block content %}
-    <section>
-        <h2>{{post.title}} </h2>
-        <div>
-            {% for tag in tags %}
-                <span>{{tag.caption}} </span>
-            {% endfor %}
-        </div>
-
-        <div>
-            {{post.description}}
-        </div>
-
-        {% if comment_form.errors %}
-            <div id = "error-box">
-                <h3>Saving the comment failed</h3>
-                <p>nokim kandum vrthikk eyuth chengai</p>
+{% comment %}  Read Later {% endcomment %}
+    <section id="read-later">
+        <div class="container">
+            <div class="row pb-5">
+                <div class="col text-end">
+                    <form action="{% url 'read-later' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{post.id}}" name="post_id">
+                        <button>
+                            {% if saved_to_read_later %}
+                                <span > Remove From Read Later</span>
+                            {% else %}
+                                <span>Read Later</span>
+                            {% endif %}
+                        </button>
+                    </form>
+                </div>
             </div>
-        {% endif %}
-
-        <div id ="read-later">
-            <form action="{% url 'read-later' %}" method="POST">
-                {% csrf_token %}
-                <input type="hidden" value="{{post.id}}" name="post_id">
-                <button>
-                    {% if saved_to_read_later %}
-                        Remove From Read Later
-                    {% else %}
-                        Read Later
-                    {% endif %}
-                </button>
-            </form>
         </div>
-        <article>
-            <img src="{{post.image.url}} " alt="{{post.title}} ">
-            <p>Published on <time>{{post.date|date:"d M Y"}} </time> </p>
-        </article>
+    </section>
+{% comment %} End of Read Later section {% endcomment %}
+
+
+{% comment %} Post section {% endcomment %}
+    <section id="post">
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex align-items-center">
+                    <div>
+                        {% for tag in tags %}
+                        <div class="badge bg-danger text-wrap " style="width: 6rem;">
+                            <span>{{tag.caption}}</span>
+                            {% endfor %}
+                        </div>
+                            <h2 class="display-2 fw-bold">{{post.title}}</h2>
+                            <small class="text-muted">Published on <time>{{post.date|date:"d M Y"}} </time> </small>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="{{post.image.url}}" alt="{{post.title}}" class="rounded">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row p-5">
+                <div class="col">
+                    <p class="lead lh-sm">
+                        {{post.description}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
     </section>
 
-    <section id="comments" >
-        <div>
+    <section id="comments">
+        <div class="container">
+        <div class="be-comment-block">
+            <h4 class="comments-title fw-bold">Comments ({{comments.count}})</h4>
             {% for comment in comments %}
-                <div>
-                    {{comment.user_name}}
-                    {{comment.user_comment}}
+                <div class="be-comment">
+                    <div class="be-comment-content border border-secondary border-1 rounded mb-1">
+                        <span class="be-comment-name">
+                            <h6 class="text-uppercase font-monospace">{{comment.user_name}}</h6>
+                        </span>
+                        <span class="be-comment-time">
+                            <i class="fa fa-clock-o"></i>
+                            {{comment.date_time}}
+                        </span>
+                        <p class="be-comment-text">
+                            {{comment.user_comment}}
+                        </p>
+                    </div>
                 </div>
             {% endfor %}
+            <h2>Your Comment</h2>
+            <form action="{% url 'detailed-post' post.slug %}" method = "POST">
+                {% csrf_token %}
+                <div class="row">
+                    {% for form_field in comment_form %} 
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group fl_icon">
+                                {{form_field}}
+                                {{form_field.errors}}
+                            </div>
+                        </div>
+                    {% endfor %}
+                        <button class="btn btn-primary pull-right">Enter Comment</button>
+                </div>
+            </form>
+        </div>
         </div>
     </section>
 
-    <section id = "comment-form">
-        <h2>Your Comment</h2>
-        <form action="{% url 'detailed-post' post.slug %}" method = "POST">
-            {% csrf_token %}
-            <div>
-                {% for form_field in comment_form  %}
-                    <div class = "form-control" {% if form_field.errors %}"invalid" {% endif %} >
-                        {{form_field.label}}
-                        {{form_field}}
-                        {{form_field.errors}}
-                    </div>
-                {% endfor %}
-                <button>Enter Comment</button>
-            </div>
-        </form>
-    </section>
 {% endblock content %}
 

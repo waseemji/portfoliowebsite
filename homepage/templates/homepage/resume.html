@@ -1,11 +1,43 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
     My Resume
 {% endblock title %}
 
+{% block style %}
+    <link rel="stylesheet" href="{% static 'homepage/resume.css' %}">
+{% endblock style %}
+
+
+
 {% block content %}
-    <h1>Here is my resume</h1>
+    <section class="container mb-5">
+        <div class=row>
+            <div class="col me-5">
+                <div class="d-flex bd-highlight">
+                    <h4 class="p-2 flex-fill bd-highlight display-4">Here is my Resume </h4>
+                    <span class="p-2 flex-fill bd-highlight d-flex justify-content-center align-items-center">
+                        <a href="{% static 'resume.pdf' %}" download="Resume_Waseem_Ashraf">
+                            <button type="button" class="btn btn-success">Download Resume</button>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col">
+                <iframe 
+                    src="{% static 'resume.pdf' %}#toolbar=0" 
+                    width="880px" 
+                    height="700px">
+                </iframe>
+            </div>
+        </div>
+
+    </section>
 {% endblock content %}
 
 

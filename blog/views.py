@@ -15,7 +15,10 @@ class BlogHomeView(ListView):
     ordering = ["-date"]
     context_object_name = "posts"
 
-    # def get_queryset(self): ??
+    def get_queryset(self):
+        base_query = super().get_queryset()
+        latest_posts = base_query[:3]
+        return latest_posts
 
 class AllPostView(ListView):
     template_name = "blog/all-posts.html"
@@ -29,7 +32,7 @@ class SinglePostView(View):
     def saved_to_read_later(self,request,post_id):
         stored_posts = request.session.get("stored_posts")
         if stored_posts is not None:
-            saved_to_read_later = True
+            saved_to_read_later = post_id in stored_posts
         else:
             saved_to_read_later = False
         return saved_to_read_later

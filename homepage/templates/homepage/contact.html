@@ -1,12 +1,89 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
     Contact Me
 {% endblock title %}
 
+{% block style %}
+    <link rel="stylesheet" href="{% static 'homepage/contact.css' %}">
+{% endblock style %}
+
+
+
 {% block content %}
-    <h1>Here are some ways to get in touch with me</h1>
-    <p>waseemashraf.99@gmail.com</p>
+    <section class="container">
+
+        
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class='col'>
+                <!--Section: Contact v.2-->
+                <section class="mb-4">
+
+                    <!--Section heading-->
+                    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact Me</h2>
+                    <!--Section description-->
+                    <p class="text-center w-responsive mx-auto mb-5">I am looking forward to make use my skills and work around with great people.Do you have any questions? I would be more than happy to respond. </p>
+
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-8 mb-md-0 mb-5">
+                            <form id="contact-form" name="contact-form" method="POST">
+                                {% csrf_token %}
+
+                                <!--Grid row-->
+                                {% for field in form %}
+                                    <div class="row ms-4 m-1">
+                                        <div class="col-md-9">
+                                            <div class="md-form">
+                                                {{field}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                
+                                <div class="d-grid gap-2 col-7 ms-5 ">
+                                    <button class="btn btn-primary btn-lg">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-3 text-start">
+                            <ul class="list-unstyled ">
+                                <i class="d-flex fas fa-map-marker-alt fa-2x"></i>
+                                <li>
+                                    <div id="googleMap">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d46493.47121383933!2d75.90712565859317!3d11.361697184938912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1670525995845!5m2!1sen!2sin" width="400" height="270" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                                    </div>
+                                </li>
+
+                                <li><a href="tel:+919645251726" class="icon"><i class="fas fa-phone mt-4 fa-2x"></i></a>
+                                    <p>+91 96452 51726</p>
+                                </li>
+                                
+                                <li>
+                                    <a href="mailto: waseemashraf.99@gmail.com" class="icon"> <i class="fas fa-envelope mt-4 fa-2x "></i></i></a>
+                                    <p>waseemashraf.99@gmail.com</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+
+                </section>
+<!--Section: Contact v.2-->
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </section>
+    {% comment %} <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCk_OrWpMhaG3wFW23ob_5Qqiy-_6GEsZI&callback=myMap"></script> {% endcomment %}
 {% endblock content %}
 
 

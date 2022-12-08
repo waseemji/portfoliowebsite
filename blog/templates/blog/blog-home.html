@@ -6,25 +6,55 @@
 {% endblock title %}
 
 {% block content %}
-<section id="welcome">
-    <header>
-        <img src="" alt="MY image ">
-        <h2>Ji Blog</h2>
+    {% comment %} <h1>This is blogs main page</h1>
+    <nav>
+        <a href="">All POsts</a>
+    </nav> {% endcomment %}
+<section id="welcome" class="container">
+    <header class="row">
+      <div class="col d-flex align-items-center">
+        <div>
+          <h1 class="display-1">Ji's Blog</h1>
+          <p class="lead">HTis is Ji and welcome to my blog</p>
+        </div>
+      </div>
+      <div class="col">
+        <img src="{% static 'ji.jpg' %}" width="600" alt="MY image " class="rounded float-end">
+      </div>
     </header>
-    <p>Welcome to my thoughts and views</p>
 </section>
 
- <section id="latest-posts">
-    <h2>My latest thoughts</h2>
+{% comment %} <section id = "latest-posts">
+    <h2>my latest thoughts</h2>
     <ul>
-        {% for post in posts %}
-            {% include "blog/includes/post.html" %}
+        {% for post  in posts %}
+        {% include "blog/includes/post.html" %}
+        
         {% endfor %}
-    </ul>
-</section> 
-<section>
-    <h4><a href="{% url 'home' %}"> Go back to my porfolio website</a></h4>
+        {% comment %} {% include "blog/includes/post.html" %} {% endcomment %}
+    {% comment %} </ul>
+</section> {% endcomment %}
+
+<section >
+
+    <div class="container pt-5">
+      <ul class=" row list-unstyled bg-light">
+        {% for post in posts %}
+            <li class="col pb-3">
+              {% include "blog/includes/post.html" %}
+
+            </li>
+        {% endfor %}
+      </ul>
+      <div class="row">
+        <a href="{% url 'all-posts' %}" class="col text-end">View More</a>
+      </div>
+    </div>
 </section>
+
+<section id ="about">
+    <h2>What i do?</h2>
+    <p>something about me </p>
+</section>
+
 {% endblock content %}
-
-

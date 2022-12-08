@@ -1,11 +1,11 @@
-<li>
-    <article class ="posts">
-        <a href="{% url 'detailed-post' post.slug %} ">
-            <img width=200 src="{{post.image.url}} " alt="{{post.title}} ">
 
-            <div class="post-content">
-                <h3>{{post.title}}</h3>
-            </div>
+    <div class ="text-center pt-4">
+        <a href="{% url 'detailed-post' post.slug %}" class="img-bg rounded mx-auto img-thumbnail pt-3 d-block text-decoration-none" >
+            <img src="{{post.image.url}}" alt="{{post.title}} ">
+
+            <div class="img-bg-inner">
+                <h2 class="lead text-dark">{{post.title}}</h2>
+        {% comment %} nEEd to include post tag  {% endcomment %}
+              </div>
         </a>
-    </article>
-</li>
+    </div>
